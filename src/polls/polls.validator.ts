@@ -2,6 +2,14 @@ import { Request, Response, NextFunction } from 'express';
 import validator from 'validator';
 
 class PollValidator {
+    private cleanOptions(options: string[]) {
+        if (Array.isArray(options)) {
+            return options.filter((option: string) => typeof option === 'string' && !validator.isEmpty(option.trim()));
+        } else {
+            return [];
+        }
+    }
+
     createPoll(req: Request, res: Response, next: NextFunction) {
         const errors: Record<string, string> = {};              
         const requiredFields = ['question', 'options'];
@@ -16,6 +24,7 @@ class PollValidator {
             errors.question = 'Question min length is 1';
         }
 
+        req.body.options = this.cleanOptions(req.body.options);
         if (!errors.options && (!Array.isArray(req.body.options) || req.body.options.length === 0)) {
             errors.options = 'Please add at least one option';
         }
@@ -75,6 +84,7 @@ class PollValidator {
             errors.question = 'Question min length is 1';
         }
 
+        req.body.options = this.cleanOptions(req.body.options);
         if (req.body.options && (!Array.isArray(req.body.options) || req.body.options.length === 0)) {
             errors.options = 'Please add at least one option';
         }

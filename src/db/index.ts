@@ -1,4 +1,5 @@
 import { MongoClient } from 'mongodb';
+import { DB_CONNECT_SUCCESS_MSG } from '../constants';
 
 const url = process.env.DATABASE_URL as string;
 const client = new MongoClient(url);
@@ -7,7 +8,7 @@ const dbName = 'pollsDb';
 
 export async function connect() {
     await client.connect();
-    return 'Database Connected successfully';
+    return DB_CONNECT_SUCCESS_MSG;
 }
 
 

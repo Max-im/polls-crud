@@ -8,6 +8,9 @@ This project provides a simple CRUD (Create, Read, Update, Delete) API for manag
 - MongoDB
 - TypeScript
 
+## Postman
+- [Postman Collection](./postman/polls.postman_collection.json)
+- [Postman Environment](./postman/polls.postman_environment.json)
 
 ## Polls API
 Method | Endpoint   | Description
@@ -18,18 +21,24 @@ GET    | /polls/:id | Get a specific poll by ID
 PUT    | /polls/:id | Update a specific poll
 DELETE | /polls/:id | Delete a specific poll
 
-
 ## Development
- - clone this repository in the current folder `https://github.com/Max-im/polls-crud.git .`;
- - make sure you current node.js version is 18 or heigher:
- ```
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-nvm use 18
- ```
+- Clone this repository in the current folder:
+  ```sh
+  git clone https://github.com/Max-im/polls-crud.git .
+  ```
+- Make sure your current Node.js version is 18 or higher:
+  ```sh
+  export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+  nvm use 18
+  ```
+- Run the command:
+  ```sh
+  npm run dev
+  ```
 
- - run command `npm run dev`;
-
- ## Production
-
- - run command `docker-compose up`
+## Production
+- Run the command:
+  ```sh
+  docker-compose up
+  ```

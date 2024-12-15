@@ -1,3 +1,4 @@
+// Custom ID implementation
 export const createId = () => {
     const timestamp = Date.now().toString(36);
     const randomChars = 'abcdefghijklmnopqrstuvwxyz0123456789';
