@@ -1,13 +1,13 @@
 import { MongoClient } from 'mongodb';
 
-const url = `mongodb+srv://max-im:mNrpaf9ZCHGkFSkU@polls.tv7k8.mongodb.net/`;
+const url = process.env.DATABASE_URL as string;
 const client = new MongoClient(url);
 
 const dbName = 'pollsDb';
 
 export async function connect() {
     await client.connect();
-    return 'Connected successfully to server';
+    return 'Database Connected successfully';
 }
 
 

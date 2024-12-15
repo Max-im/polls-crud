@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from 'express';
 import pollsRouter from './polls';
 import { connect } from './db';

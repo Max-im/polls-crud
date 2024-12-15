@@ -23,10 +23,8 @@ DELETE | /polls/:id | Delete a specific poll
 - [x] search query verification
 - [x] default id
 - [x] build and start scripts
-- [ ] .env
-- [ ] deployment ngrok / remote
+- [x] postman env + collection
+- [x] .env
 - [ ] linting
-- [ ] postman env + collection
-- [ ] postman env + collection
 - [ ] Docker
 - [ ] ngnix
