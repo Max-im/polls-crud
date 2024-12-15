@@ -7,7 +7,7 @@ export default class UpdatePollDto implements Omit<IPoll, 'created_at'> {
     question: string;
     options: string[];
 
-    constructor(id: string, data: any) {
+    constructor(id: string, data: IPoll) {
         this.id = id;
         this.question = data.question;
         this.options = data.options;

@@ -11,6 +11,7 @@ class PollsController {
             const result = await pollsRepository.getAll(req.query);
             res.status(result.code).send(result.payload);
         } catch (error) {
+            console.error(error);
             res.status(500).send({ error: INTERNAL_ERROR_MSG });
         }
     };
@@ -20,6 +21,7 @@ class PollsController {
             const result = await pollsRepository.getItem(req.params.id);
             res.status(result.code).send(result.payload);
         } catch (error) {
+            console.error(error);
             res.status(500).send({ error: INTERNAL_ERROR_MSG });
         }
     };
@@ -30,6 +32,7 @@ class PollsController {
             const result = await pollsRepository.create(dto);
             res.status(result.code).send(result.payload);
         } catch (error) {
+            console.error(error);
             res.status(500).send({ error: INTERNAL_ERROR_MSG });
         }
     };
@@ -41,6 +44,7 @@ class PollsController {
             const response = result.error ? result.payload : new ResponsePollDto(result.payload);
             res.status(result.code).send(response);
         } catch (error) {
+            console.error(error);
             res.status(500).send({ error: INTERNAL_ERROR_MSG });
         }
     };
@@ -50,6 +54,7 @@ class PollsController {
             const result = await pollsRepository.delete(req.params.id);
             res.status(result.code).send(result.payload);
         } catch (error) {
+            console.error(error);
             res.status(500).send({ error: INTERNAL_ERROR_MSG });
         }
     };

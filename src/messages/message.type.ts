@@ -1,5 +1,5 @@
 export interface IMessage {
-    payload: any;
+    payload: Record<string, unknown> | string | number | boolean | null;
     error: boolean;
     code: number;
 }

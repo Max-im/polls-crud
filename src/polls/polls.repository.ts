@@ -1,4 +1,4 @@
-import { IPoll, IPollData } from "./polls.type";
+import { IPoll, IPollData, SearchQuery } from "./polls.type";
 import { getClient } from "../db";
 import { IMessage, SuccessMessage, ErrorMessage, NotFoundMessage } from "../messages";
 import { ParsedQs } from "qs";
@@ -24,10 +24,10 @@ class PollsRepository {
 
     async getAll(queries: ParsedQs): Promise<IMessage> {
         try {
-            const searchQuery: {[key: string]: any} = {};
+            const searchQuery: SearchQuery = {};
 
             if (queries.search) {
-                searchQuery.question = { $regex: queries.search, $options: 'i' };
+                searchQuery.question = { $regex: queries.search as string, $options: 'i' };
             }
 
             const defaultLimit = 2
@@ -52,7 +52,6 @@ class PollsRepository {
             }));
 
             const nextCursor = result.length > 0 ? result[result.length - 1]._id : null;
-
 
             return new SuccessMessage<{polls: IPoll[], nextCursor: ObjectId | null}>({polls: payload, nextCursor});
         } catch (e) {

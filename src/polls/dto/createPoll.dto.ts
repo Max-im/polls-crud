@@ -7,7 +7,7 @@ export default class CreatePollDto implements IPollData {
     question: string;
     options: string[];
 
-    constructor(data: any) {
+    constructor(data: {question: string, options: string[]}) {
         this.question = data.question;
         this.options = data.options;
         this.created_at = toUnixTimestamp();
