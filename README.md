@@ -19,10 +19,14 @@ PUT    | /polls/:id | Update a specific poll
 DELETE | /polls/:id | Delete a specific poll
 
 ## TODO
-- [ ] pagination
-- [ ] search query verification
+- [x] pagination
+- [x] search query verification
+- [x] default id
+- [x] build and start scripts
+- [ ] .env
 - [ ] deployment ngrok / remote
-- [ ] custom id / default id
+- [ ] linting
+- [ ] postman env + collection
+- [ ] postman env + collection
 - [ ] Docker
-- [ ] ngnix
 - [ ] ngnix
