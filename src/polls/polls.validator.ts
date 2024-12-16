@@ -20,7 +20,6 @@ class PollValidator {
         }
 
         if (!errors.question && (typeof req.body.question !== 'string' || validator.isEmpty(req.body.question))) {
-            console.log('here')
             errors.question = 'Question min length is 1';
         }
 
