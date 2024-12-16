@@ -1,4 +1,4 @@
-import { ObjectId } from 'mongodb';
+import { Document, ObjectId } from 'mongodb';
 import { ParsedQs } from 'qs';
 
 export interface IPollData {
@@ -25,4 +25,17 @@ export interface SearchQuery {
     _id?: {
         $gt?: ObjectId;
     };
+}
+
+export interface IGetPollsResponse {
+    polls: IPoll[];
+    nextCursor: ObjectId | null;
+}
+
+export interface PollDocument extends Document {
+    _id: ObjectId;
+    question: string;
+    options: string[];
+    created_at: number;
+    updated_at: number;
 }

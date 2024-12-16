@@ -1,7 +1,7 @@
 import { INTERNAL_ERROR_MSG } from "../constants";
-import { IMessage } from "./message.type";
+import { IErrorMessage } from "./message.type";
 
-export class ErrorMessage implements IMessage {
+export class ErrorMessage implements IErrorMessage {
     payload: {message: string};
     error = true;
     code = 500;

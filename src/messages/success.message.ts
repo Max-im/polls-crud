@@ -1,6 +1,6 @@
-import { IMessage } from "./message.type";
+import { ISuccessMessage } from "./message.type";
 
-export class SuccessMessage<T> implements IMessage {
+export class SuccessMessage<T> implements ISuccessMessage<T> {
     payload: T;
     error = false;
     code = 200;

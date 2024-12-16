@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
 import CreatePollDto from './dto/createPoll.dto';
 import UpdatePollDto from './dto/updatePoll.dto';
-import ResponsePollDto from './dto/responsePoll.dto';
 import pollsRepository from './polls.repository';
 
 class PollsController {
@@ -24,8 +23,7 @@ class PollsController {
     updatePoll = async (req: Request, res: Response) => {
         const dto = new UpdatePollDto(req.params.id, req.body);
         const result = await pollsRepository.update(dto);
-        const response = result.error ? result.payload : new ResponsePollDto(result.payload);
-        res.status(result.code).send(response);
+        res.status(result.code).send(result.payload);
     };
     
     deletePoll = async (req: Request, res: Response) => {
