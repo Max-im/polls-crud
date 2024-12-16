@@ -9,7 +9,6 @@ function cleanOptions(options: string[]) {
     }
 }
 class PollValidator {
-
     createPoll(req: Request, res: Response, next: NextFunction) {
         const errors: Record<string, string> = {};              
         const requiredFields = ['question', 'options'];
@@ -20,7 +19,8 @@ class PollValidator {
             }
         }
 
-        if (!errors.question && validator.isEmpty(req.body.question)) {
+        if (!errors.question && (typeof req.body.question !== 'string' || validator.isEmpty(req.body.question))) {
+            console.log('here')
             errors.question = 'Question min length is 1';
         }
 
@@ -82,7 +82,7 @@ class PollValidator {
             errors.fields = 'At least one field is required';
         }
 
-        if (req.body.question && validator.isEmpty(req.body.question)) {
+        if (req.body.question && (typeof req.body.question !== 'string' || validator.isEmpty(req.body.question))) {
             errors.question = 'Question min length is 1';
         }
 
