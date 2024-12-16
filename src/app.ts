@@ -1,5 +1,6 @@
 import 'dotenv/config';
 import express from 'express';
+import cors from 'cors';
 import pollsRouter from './polls';
 import { connect } from './db';
 import { NOT_FOUND_MSG } from './constants';
@@ -7,6 +8,7 @@ import { appHandler } from './handlers';
 
 async function getApplication() {
     const app = express();
+    app.use(cors());
 
     await connect()
         .then(console.log)
