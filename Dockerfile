@@ -31,6 +31,5 @@ COPY package*.json .
 RUN npm ci --only=production
 
 COPY --from=development /usr/src/app/dist ./dist
-COPY .env .
 
 CMD ["node", "dist/index.js"]
